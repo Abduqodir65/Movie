@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Login</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<link rel="stylesheet" href="/css/style.css">
+	<!-- Font Awesome ulash -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<style>
+		/* Asosiy rangni sozlash */
+		.bg-primary-custom {
+			background-color: #40ccf7 !important;
+		}
+
+		.text-primary-custom {
+			color: #40ccf7 !important;
+		}
+
+		/* Chiroyli, noan’anaviy gradient fon */
+		body {
+			background: url('./images/UZ-en-20241028-TRIFECTA-perspective_b0c8a232-4b10-41d4-b511-9df2876e7776_medium.jpg') center no-repeat;
+			background-size: cover;
+		}
+
+		/* Formani chiroyli qilish */
+		.form-signin {
+			background: rgba(0, 0, 0, 0.8);
+			color: white;
+			padding: 2rem;
+			border-radius: 10px;
+			box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+			transition: transform 0.3s ease;
+		}
+
+		/* Hover efekti */
+		.form-signin:hover {
+			transform: scale(1.02);
+		}
+
+		/* Submit tugmasi hover animatsiyasi */
+		.btn.bg-primary-custom {
+			transition: background-color 0.3s ease, transform 0.3s ease;
+		}
+
+		.btn.bg-primary-custom:hover {
+			background-color: #0097a7;
+			transform: scale(1.05);
+			box-shadow: 0px 4px 12px rgba(0, 151, 167, 0.6);
+		}
+
+		/* Google tugmasi */
+		.google-btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 8px;
+			background-color: #4285f4;
+			color: white;
+			padding: 0.6rem;
+			border-radius: 5px;
+			text-decoration: none;
+			font-weight: 500;
+			box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+			transition: transform 0.2s ease, box-shadow 0.2s ease;
+		}
+
+		.google-btn:hover {
+			transform: scale(1.05);
+			box-shadow: 0px 6px 12px rgba(66, 133, 244, 0.4);
+		}
+
+		/* Input focus effekti */
+		.form-control:focus {
+			border-color: #40ccf7;
+			box-shadow: 0 0 8px rgba(64, 204, 247, 0.6);
+		}
+
+		/* Ro'yxatdan o'tish linki hover */
+		.text-primary-custom {
+			transition: color 0.3s ease;
+		}
+
+		.text-primary-custom:hover {
+			color: #0097a7;
+			text-decoration: underline;
+		}
+	</style>
+</head>
+
+<body class="d-flex align-items-center py-5">
+	<main class="form-signin w-25 m-auto shadow-lg">
+		<form class="login-form">
+			<a class="navbar-brand text-center mb-4 d-block" href="/login">
+				<span class="text-primary-custom fs-1 fw-bold" style="font-size: 30px;font-weight: 800;">Luxmir</span>
+			</a>
+			<h1 class="h3 mb-3 fw-normal text-center">Please sign in</h1>
+
+			<div class="form-floating mb-2">
+				<input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+					required />
+				<label for="floatingInput">Email address</label>
+			</div>
+
+			<div class="form-floating mb-3">
+				<input type="password" name="password" class="form-control" id="password" placeholder="**********"
+					required />
+				<label for="password">Password</label>
+			</div>
+
+			<button class="btn bg-primary-custom text-light w-100 py-2 mb-3 rounded" type="submit">
+				Sign in
+			</button>
+
+			<a href="/auth/google" class="google-btn w-100 mb-3">
+				<i class="fab fa-google"></i>
+				<span>Sign in with Google</span>
+			</a>
+
+			<p class="text-center text-secondary mt-2">
+				<a href="/forgot-password" class="text-primary-custom">Forgot your password?</a>
+			</p>
+
+			<p class="text-center text-secondary mt-3">
+				Don't have an account? <a href="/register" class="text-primary-custom">Sign up</a>
+			</p>
+		</form>
+	</main>
+	<script type="module" src="/js/bootstrap.js"></script>
+	<script type="module" src="/js/login.js"></script>
+</body>
+
+</html>

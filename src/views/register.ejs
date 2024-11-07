@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .bg-primary-custom {
+            background-color: #40ccf7 !important;
+        }
+        .text-primary-custom {
+            color: #40ccf7 !important;
+        }
+
+        body {
+            background: url('./images/UZ-en-20241028-TRIFECTA-perspective_b0c8a232-4b10-41d4-b511-9df2876e7776_medium.jpg') center no-repeat;
+            background-size: cover;
+        }
+
+        /* Formani chiroyli qilish */
+        .form-signin, .form-register {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover efekti */
+        .form-signin:hover, .form-register:hover {
+            transform: scale(1.02);
+        }
+
+        /* Submit tugmasi hover animatsiyasi */
+        .btn.bg-primary-custom {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn.bg-primary-custom:hover {
+            background-color: #0097a7;
+            transform: scale(1.05);
+            box-shadow: 0px 4px 12px rgba(0, 151, 167, 0.6);
+        }
+
+        /* Input focus effekti */
+        .form-control:focus {
+            border-color: #40ccf7;
+            box-shadow: 0 0 8px rgba(64, 204, 247, 0.6);
+        }
+
+        /* Ro'yxatdan o'tish linki hover */
+        .text-primary-custom {
+            transition: color 0.3s ease;
+        }
+        .text-primary-custom:hover {
+            color: #0097a7;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="d-flex align-items-center py-5">
+    <main class="form-register w-25 m-auto shadow-lg">
+        <form class="register-form">
+            <a class="navbar-brand text-center mb-4 d-block" href="/register">
+                <span class="text-primary-custom fs-1 fw-bold" style="font-size: 30px; font-weight: 800;">Luxmir</span>
+            </a>
+            <h1 class="h3 mb-3 fw-normal text-center">Please sign up</h1>
+
+            <!-- Full Name input -->
+            <div class="form-floating mb-3">
+                <input type="text" name="name" class="form-control" id="floatingName" placeholder="Full name" required />
+                <label for="floatingName">Full name</label>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-floating mb-2">
+                <input type="email" name="email" class="form-control" id="floatingInput"
+                    placeholder="name@example.com" required />
+                <label for="floatingInput">Email address</label>
+            </div>
+
+            <!-- Phone input -->
+            <div class="form-floating mb-3">
+                <input type="password" name="password" class="form-control" id="password" placeholder="**********" required />
+				<label for="password">Password</label>
+            </div>
+
+            <!-- Submit tugmasi -->
+            <button class="btn bg-primary-custom text-light w-100 py-2 mb-3 rounded" type="submit">
+                Sign up
+            </button>
+
+            <!-- Sign in taklifi -->
+            <p class="text-center text-secondary mt-3">
+                Already have an account? <a href="/login" class="text-primary-custom">Sign in</a>
+            </p>
+        </form>
+    </main>
+    <script type="module" src="/js/bootstrap.js"></script>
+    <script type="module" src="/js/register.js"></script>
+</body>
+</html>
