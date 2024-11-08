@@ -20,4 +20,7 @@ export declare class AppController {
     movieDeatil(): {
         info: string;
     };
+    profile(): {
+        info: string;
+    };
 }

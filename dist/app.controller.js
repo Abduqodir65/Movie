@@ -36,6 +36,9 @@ let AppController = class AppController {
     movieDeatil() {
         return { info: 'hello' };
     }
+    profile() {
+        return { info: 'hello' };
+    }
 };
 exports.AppController = AppController;
 __decorate([
@@ -88,6 +91,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "movieDeatil", null);
+__decorate([
+    (0, common_1.Get)('/profile'),
+    (0, common_1.Render)('profile'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "profile", null);
 exports.AppController = AppController = __decorate([
     (0, common_1.Controller)()
 ], AppController);

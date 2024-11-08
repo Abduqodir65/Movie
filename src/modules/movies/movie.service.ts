@@ -14,76 +14,76 @@ export class MovieService {
         private readonly sequelize: Sequelize
     ) {}
 
-    async getAllMovies(filters: any): Promise<Movie[]> {
-        const apiFeature = new ApiFeature('movies')
-            .paginate(filters.page, filters.limit)
-            .sort(filters.sort)
-            .filter(filters);
+    // async getAllMovies(filters: any): Promise<Movie[]> {
+    //     const apiFeature = new ApiFeature('movies')
+    //         .paginate(filters.page, filters.limit)
+    //         .sort(filters.sort)
+    //         .filter(filters);
     
-        const query = apiFeature.getQuery();
+    //     const query = apiFeature.getQuery();
     
-        const movies = await this.sequelize.query(query.queryString, {
-            model: Movie,
-            mapToModel: true,
-            replacements: query.filters, 
-        });
+    //     const movies = await this.sequelize.query(query.queryString, {
+    //         model: Movie,
+    //         mapToModel: true,
+    //         replacements: query.filters, 
+    //     });
 
-        console.log(movies)
+    //     console.log(movies)
     
-        return movies;
-    }
-
-    // async getAllMovies():Promise<Movie[]> {
-    //     return await this.movieModel.findAll()
+    //     return movies;
     // }
 
-    async getTrendingMovies(): Promise<Movie[]> {
-        const apiFeature = new ApiFeature('movies').trending();
-        const query = apiFeature.getQuery();
+    async getAllMovies():Promise<Movie[]> {
+        return await this.movieModel.findAll()
+    }
+
+    // async getTrendingMovies(): Promise<Movie[]> {
+    //     const apiFeature = new ApiFeature('movies').trending();
+    //     const query = apiFeature.getQuery();
         
-        const movies = await this.sequelize.query(query.queryString, {
-            model: Movie,
-            mapToModel: true,
-        });
+    //     const movies = await this.sequelize.query(query.queryString, {
+    //         model: Movie,
+    //         mapToModel: true,
+    //     });
         
-        return movies;
-    }
+    //     return movies;
+    // }
 
-    async getLatestMovies(): Promise<Movie[]> {
-        const apiFeature = new ApiFeature('movies').latest();
-        const query = apiFeature.getQuery();
+    // async getLatestMovies(): Promise<Movie[]> {
+    //     const apiFeature = new ApiFeature('movies').latest();
+    //     const query = apiFeature.getQuery();
 
-        const movies = await this.sequelize.query(query.queryString, {
-            model: Movie,
-            mapToModel: true,     
-        });
+    //     const movies = await this.sequelize.query(query.queryString, {
+    //         model: Movie,
+    //         mapToModel: true,     
+    //     });
 
-        return movies;
-    }
+    //     return movies;
+    // }
 
-    async getMostReviewedMovies(): Promise<Movie[]> {
-        const apiFeature = new ApiFeature('movies').mostReviewed();
-        const query = apiFeature.getQuery();
+    // async getMostReviewedMovies(): Promise<Movie[]> {
+    //     const apiFeature = new ApiFeature('movies').mostReviewed();
+    //     const query = apiFeature.getQuery();
 
-        const movies = await this.sequelize.query(query.queryString, {
-            model: Movie,
-            mapToModel: true,
-        });
+    //     const movies = await this.sequelize.query(query.queryString, {
+    //         model: Movie,
+    //         mapToModel: true,
+    //     });
 
-        return movies;
-    }
+    //     return movies;
+    // }
 
-    async searchMovies(searchTerm: string): Promise<Movie[]> {
-        const apiFeature = new ApiFeature('movies').smartSearch(searchTerm);
-        const query = apiFeature.getQuery();
+    // async searchMovies(searchTerm: string): Promise<Movie[]> {
+    //     const apiFeature = new ApiFeature('movies').smartSearch(searchTerm);
+    //     const query = apiFeature.getQuery();
 
-        const movies = await this.sequelize.query(query.queryString, {
-            model: Movie,
-            mapToModel: true,
-        });
+    //     const movies = await this.sequelize.query(query.queryString, {
+    //         model: Movie,
+    //         mapToModel: true,
+    //     });
 
-        return movies;
-    }
+    //     return movies;
+    // }
 
     async getSingleMovie(id:number):Promise<Movie> {
         return await this.movieModel.findOne({

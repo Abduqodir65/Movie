@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Login</title>
 	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 	<link rel="stylesheet" href="/css/style.css">
 	<!-- Font Awesome ulash -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -87,11 +89,28 @@
 			color: #0097a7;
 			text-decoration: underline;
 		}
+
+		@media (max-width: 576px) {
+			.text-primary-custom {
+				font-size: 1rem;
+			}
+
+			.google-btn {
+				font-size: 0.9rem;
+			}
+
+			body {
+				background-size: cover;
+				background-position: center;
+				height: 100vh;
+			}
+
+		}
 	</style>
 </head>
 
 <body class="d-flex align-items-center py-5">
-	<main class="form-signin w-25 m-auto shadow-lg">
+	<main class="form-signin w-75 w-md-50 w-lg-25 m-auto shadow-lg">
 		<form class="login-form">
 			<a class="navbar-brand text-center mb-4 d-block" href="/login">
 				<span class="text-primary-custom fs-1 fw-bold" style="font-size: 30px;font-weight: 800;">Luxmir</span>

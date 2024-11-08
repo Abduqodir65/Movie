@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,6 +11,7 @@
         .bg-primary-custom {
             background-color: #40ccf7 !important;
         }
+
         .text-primary-custom {
             color: #40ccf7 !important;
         }
@@ -20,7 +22,8 @@
         }
 
         /* Formani chiroyli qilish */
-        .form-signin, .form-register {
+        .form-signin,
+        .form-register {
             background: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 2rem;
@@ -30,7 +33,8 @@
         }
 
         /* Hover efekti */
-        .form-signin:hover, .form-register:hover {
+        .form-signin:hover,
+        .form-register:hover {
             transform: scale(1.02);
         }
 
@@ -38,6 +42,7 @@
         .btn.bg-primary-custom {
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
+
         .btn.bg-primary-custom:hover {
             background-color: #0097a7;
             transform: scale(1.05);
@@ -54,14 +59,50 @@
         .text-primary-custom {
             transition: color 0.3s ease;
         }
+
         .text-primary-custom:hover {
             color: #0097a7;
             text-decoration: underline;
         }
+
+        @media (max-width: 576px) {
+            .form-register {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .btn.bg-primary-custom {
+                font-size: 0.9rem;
+            }
+
+            .text-primary-custom {
+                font-size: 0.95rem;
+            }
+        }
+
+        body {
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+
+        .form-control {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 576px) {
+            .form-register:hover {
+                transform: none;
+            }
+        }
     </style>
 </head>
+
 <body class="d-flex align-items-center py-5">
-    <main class="form-register w-25 m-auto shadow-lg">
+    <main class="form-register w-75 w-md-50 w-lg-25 m-auto shadow-lg">
         <form class="register-form">
             <a class="navbar-brand text-center mb-4 d-block" href="/register">
                 <span class="text-primary-custom fs-1 fw-bold" style="font-size: 30px; font-weight: 800;">Luxmir</span>
@@ -70,21 +111,23 @@
 
             <!-- Full Name input -->
             <div class="form-floating mb-3">
-                <input type="text" name="name" class="form-control" id="floatingName" placeholder="Full name" required />
+                <input type="text" name="name" class="form-control" id="floatingName" placeholder="Full name"
+                    required />
                 <label for="floatingName">Full name</label>
             </div>
 
             <!-- Email input -->
             <div class="form-floating mb-2">
-                <input type="email" name="email" class="form-control" id="floatingInput"
-                    placeholder="name@example.com" required />
+                <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    required />
                 <label for="floatingInput">Email address</label>
             </div>
 
             <!-- Phone input -->
             <div class="form-floating mb-3">
-                <input type="password" name="password" class="form-control" id="password" placeholder="**********" required />
-				<label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="**********"
+                    required />
+                <label for="password">Password</label>
             </div>
 
             <!-- Submit tugmasi -->
@@ -101,4 +144,5 @@
     <script type="module" src="/js/bootstrap.js"></script>
     <script type="module" src="/js/register.js"></script>
 </body>
+
 </html>

@@ -4,11 +4,7 @@ import { CreateMovieDto, UpdateMovieDto } from "./dtos";
 export declare class MovieController {
     private readonly movieService;
     constructor(movieService: MovieService);
-    getAllMovies(page: string, limit: string, sort: string, filters: any): Promise<Movie[]>;
-    getTrendingMovies(): Promise<Movie[]>;
-    getLatestMovies(): Promise<Movie[]>;
-    getMostReviewedMovies(): Promise<Movie[]>;
-    searchMovies(searchTerm: string): Promise<Movie[]>;
+    getAllMovies(): Promise<Movie[]>;
     getSingleMovie(id: number): Promise<Movie>;
     createMovie(payload: CreateMovieDto, files: {
         image: Express.Multer.File[];

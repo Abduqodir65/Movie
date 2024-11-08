@@ -47,7 +47,7 @@ userPageBtn.addEventListener("click", () => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-        window.location.href = "./login.html";
+        window.location.href = "./login.ht";
     } else {
         window.location.href = "./profile.html";
     }

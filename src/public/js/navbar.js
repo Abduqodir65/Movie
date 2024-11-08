@@ -7,3 +7,4 @@ hamburgerbtn.addEventListener("click", () => {
 closebtn.addEventListener("click", () => {
   nav_list.classList.remove("active");
 })
+

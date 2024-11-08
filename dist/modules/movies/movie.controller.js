@@ -21,25 +21,8 @@ let MovieController = class MovieController {
     constructor(movieService) {
         this.movieService = movieService;
     }
-    async getAllMovies(page, limit, sort, filters) {
-        return this.movieService.getAllMovies({
-            page: Number(page) || 1,
-            limit: Number(limit) || 10,
-            sort,
-            filters
-        });
-    }
-    async getTrendingMovies() {
-        return this.movieService.getTrendingMovies();
-    }
-    async getLatestMovies() {
-        return this.movieService.getLatestMovies();
-    }
-    async getMostReviewedMovies() {
-        return this.movieService.getMostReviewedMovies();
-    }
-    async searchMovies(searchTerm) {
-        return this.movieService.searchMovies(searchTerm);
+    async getAllMovies() {
+        return await this.movieService.getAllMovies();
     }
     async getSingleMovie(id) {
         return this.movieService.getSingleMovie(id);
@@ -57,39 +40,10 @@ let MovieController = class MovieController {
 exports.MovieController = MovieController;
 __decorate([
     (0, common_1.Get)(),
-    __param(0, (0, common_1.Query)('page')),
-    __param(1, (0, common_1.Query)('limit')),
-    __param(2, (0, common_1.Query)('sort')),
-    __param(3, (0, common_1.Query)('filters')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, String, Object]),
+    __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], MovieController.prototype, "getAllMovies", null);
-__decorate([
-    (0, common_1.Get)('trending'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], MovieController.prototype, "getTrendingMovies", null);
-__decorate([
-    (0, common_1.Get)('latest'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], MovieController.prototype, "getLatestMovies", null);
-__decorate([
-    (0, common_1.Get)('most-reviewed'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], MovieController.prototype, "getMostReviewedMovies", null);
-__decorate([
-    (0, common_1.Get)('search'),
-    __param(0, (0, common_1.Query)('term')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", Promise)
-], MovieController.prototype, "searchMovies", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),

@@ -105,3 +105,21 @@ const scrollWindow = function () {
   }
 };
 backbtn.addEventListener("click", scrollWindow);
+
+
+
+// Elementlarni tanlash
+const profileButton = document.getElementById('profileButton');
+const dropdownMenu = document.getElementById('dropdownMenu');
+
+// Tugmani bosganda menyuni ochish/yopish
+profileButton.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('show');
+});
+
+// Tashqariga bosilganda menyuni yopish
+document.addEventListener('click', (event) => {
+    if (!profileButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.classList.remove('show');
+    }
+});

@@ -17,7 +17,6 @@ const common_1 = require("@nestjs/common");
 const models_1 = require("./models");
 const sequelize_1 = require("@nestjs/sequelize");
 const file_1 = require("../file");
-const utils_1 = require("../../utils");
 const sequelize_typescript_1 = require("sequelize-typescript");
 let MovieService = class MovieService {
     constructor(movieModel, fileService, sequelize) {
@@ -25,55 +24,8 @@ let MovieService = class MovieService {
         this.fileService = fileService;
         this.sequelize = sequelize;
     }
-    async getAllMovies(filters) {
-        const apiFeature = new utils_1.ApiFeature('movies')
-            .paginate(filters.page, filters.limit)
-            .sort(filters.sort)
-            .filter(filters);
-        const query = apiFeature.getQuery();
-        const movies = await this.sequelize.query(query.queryString, {
-            model: models_1.Movie,
-            mapToModel: true,
-            replacements: query.filters,
-        });
-        console.log(movies);
-        return movies;
-    }
-    async getTrendingMovies() {
-        const apiFeature = new utils_1.ApiFeature('movies').trending();
-        const query = apiFeature.getQuery();
-        const movies = await this.sequelize.query(query.queryString, {
-            model: models_1.Movie,
-            mapToModel: true,
-        });
-        return movies;
-    }
-    async getLatestMovies() {
-        const apiFeature = new utils_1.ApiFeature('movies').latest();
-        const query = apiFeature.getQuery();
-        const movies = await this.sequelize.query(query.queryString, {
-            model: models_1.Movie,
-            mapToModel: true,
-        });
-        return movies;
-    }
-    async getMostReviewedMovies() {
-        const apiFeature = new utils_1.ApiFeature('movies').mostReviewed();
-        const query = apiFeature.getQuery();
-        const movies = await this.sequelize.query(query.queryString, {
-            model: models_1.Movie,
-            mapToModel: true,
-        });
-        return movies;
-    }
-    async searchMovies(searchTerm) {
-        const apiFeature = new utils_1.ApiFeature('movies').smartSearch(searchTerm);
-        const query = apiFeature.getQuery();
-        const movies = await this.sequelize.query(query.queryString, {
-            model: models_1.Movie,
-            mapToModel: true,
-        });
-        return movies;
+    async getAllMovies() {
+        return await this.movieModel.findAll();
     }
     async getSingleMovie(id) {
         return await this.movieModel.findOne({

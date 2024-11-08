@@ -43,4 +43,11 @@ export class AppController {
     movieDeatil() {
         return { info: 'hello' }
     }
+    @Get('/profile')
+    @Render('profile')
+    profile() {
+        return { info: 'hello' }
+    }
+
+
 }

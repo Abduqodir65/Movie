@@ -10,52 +10,51 @@ export class MovieController {
     constructor(private readonly movieService: MovieService) { }
 
     // Barcha filmlarni olish, filter, pagination va sorting bilan
-    @Get()
-    async getAllMovies(
-        @Query('page') page: string,
-        @Query('limit') limit: string,
-        @Query('sort') sort: string,
-        @Query('filters') filters: any
-    ): Promise<Movie[]> {
-        return this.movieService.getAllMovies({
-            page: Number(page) || 1, 
-            limit: Number(limit) || 10, 
-            sort,
-            filters
-        });
-    }
-
     // @Get()
-    // async getAllMovies():Promise<Movie[]> {
-    //     return await this.movieService.getAllMovies()
+    // async getAllMovies(
+    //     @Query('page') page: string,
+    //     @Query('limit') limit: string,
+    //     @Query('sort') sort: string,
+    //     @Query('filters') filters: any
+    // ): Promise<Movie[]> {
+    //     return this.movieService.getAllMovies({
+    //         page: Number(page) || 1, 
+    //         limit: Number(limit) || 10, 
+    //         sort,
+    //         filters
+    //     });
     // }
 
-
-    @Get('trending')
-    async getTrendingMovies(): Promise<Movie[]> {
-        return this.movieService.getTrendingMovies();
+    @Get()
+    async getAllMovies():Promise<Movie[]> {
+        return await this.movieService.getAllMovies()
     }
 
-    // Yangi qo'shilgan filmlarni olish
-    @Get('latest')
-    async getLatestMovies(): Promise<Movie[]> {
-        return this.movieService.getLatestMovies();
-    }
 
-    // Eng ko‘p sharh olgan filmlarni olish
-    @Get('most-reviewed')
-    async getMostReviewedMovies(): Promise<Movie[]> {
-        return this.movieService.getMostReviewedMovies();
-    }
+    // @Get('trending')
+    // async getTrendingMovies(): Promise<Movie[]> {
+    //     return this.movieService.getTrendingMovies();
+    // }
 
-    @Get('search')
-    async searchMovies(
-        @Query('term') searchTerm: string
-    ): Promise<Movie[]> {
-        return this.movieService.searchMovies(searchTerm);
-    }
+    // // Yangi qo'shilgan filmlarni olish
+    // @Get('latest')
+    // async getLatestMovies(): Promise<Movie[]> {
+    //     return this.movieService.getLatestMovies();
+    // }
 
-    // Birgina filmni ID orqali olish
+    // // Eng ko‘p sharh olgan filmlarni olish
+    // @Get('most-reviewed')
+    // async getMostReviewedMovies(): Promise<Movie[]> {
+    //     return this.movieService.getMostReviewedMovies();
+    // }
+
+    // @Get('search')
+    // async searchMovies(
+    //     @Query('term') searchTerm: string
+    // ): Promise<Movie[]> {
+    //     return this.movieService.searchMovies(searchTerm);
+    // }
+
     @Get(':id')
     async getSingleMovie(@Param('id') id: number): Promise<Movie> {
         return this.movieService.getSingleMovie(id);

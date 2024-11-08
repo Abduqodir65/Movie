@@ -2,270 +2,121 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-
-    <title>account settings - Bootdey.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./css/bootstrap.css" />
-    <style type="text/css">
-        body {
-            background: #f5f5f5;
-            margin-top: 20px;
-        }
-
-        .ui-w-80 {
-            width: 80px !important;
-            height: auto;
-        }
-
-        .btn-default {
-            border-color: rgba(24, 28, 33, 0.1);
-            background: rgba(0, 0, 0, 0);
-            color: #4e5155;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-default:hover {
-            background-color: #40ccf7;
-            color: white;
-        }
-
-        label.btn {
-            margin-bottom: 0;
-        }
-
-        .btn-outline-primary {
-            border-color: #26b4ff;
-            background: transparent;
-            color: #26b4ff;
-            transition: color 0.3s ease;
-        }
-
-        .btn-outline-primary:hover {
-            color: white;
-            background-color: #40ccf7;
-        }
-
-        .btn {
-            cursor: pointer;
-        }
-
-        .text-light {
-            color: #babbbc !important;
-        }
-
-        .btn-facebook {
-            border-color: rgba(0, 0, 0, 0);
-            background: #3b5998;
-            color: #fff;
-        }
-
-        .btn-instagram {
-            border-color: rgba(0, 0, 0, 0);
-            background: #000;
-            color: #fff;
-        }
-
-        .card {
-            background-clip: padding-box;
-            box-shadow: 0 1px 4px rgba(24, 28, 33, 0.012);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .row-bordered {
-            overflow: hidden;
-        }
-
-        .account-settings-fileinput {
-            position: absolute;
-            visibility: hidden;
-            width: 1px;
-            height: 1px;
-            opacity: 0;
-        }
-
-        .account-settings-links .list-group-item.active {
-            font-weight: bold !important;
-            color: #40ccf7;
-        }
-
-        .account-settings-links .list-group-item:hover {
-            background-color: #40ccf7;
-            color: white;
-        }
-
-        .account-settings-multiselect~.select2-container {
-            width: 100% !important;
-        }
-
-        .light-style .account-settings-links .list-group-item {
-            padding: 0.85rem 1.5rem;
-            border-color: rgba(24, 28, 33, 0.03) !important;
-        }
-
-        .light-style .account-settings-links .list-group-item.active {
-            color: #4e5155 !important;
-        }
-
-        .material-style .account-settings-links .list-group-item {
-            padding: 0.85rem 1.5rem;
-            border-color: rgba(24, 28, 33, 0.03) !important;
-        }
-
-        .material-style .account-settings-links .list-group-item.active {
-            color: #4e5155 !important;
-        }
-
-        .dark-style .account-settings-links .list-group-item {
-            padding: 0.85rem 1.5rem;
-            border-color: rgba(255, 255, 255, 0.03) !important;
-        }
-
-        .dark-style .account-settings-links .list-group-item.active {
-            color: #fff !important;
-        }
-
-        .light-style .account-settings-links .list-group-item.active {
-            color: #4e5155 !important;
-        }
-
-        .light-style .account-settings-links .list-group-item {
-            padding: 0.85rem 1.5rem;
-            border-color: rgba(24, 28, 33, 0.03) !important;
-        }
-
-        /* Profile image hover effect */
-        .user-image {
-            border: 3px solid #40ccf7;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .user-image:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/profile.css">
 </head>
 
 <body>
-    <div class="container light-style flex-grow-1 container-p-y">
-        <a href="./index.html">Home</a>
-        <h4 class="font-weight-bold py-3 mb-4">Profile</h4>
+    <div class="profile-container">
+        <div class="profile-card" id="profile">
+            <div class="profile-image-container">
+                <img src="user-image.jpg" alt="User Image" id="user-image" class="profile-image">
+            </div>
 
-        <div class="card overflow-hidden">
-            <div class="row no-gutters row-bordered row-border-light">
-                <div class="col-md-3 pt-0">
-                    <div class="list-group list-group-flush account-settings-links">
-                        <a class="list-group-item list-group-item-action active" data-toggle="list"
-                            href="#account-general">General</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-orders">Orders</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-reviews">Reviews</a>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="tab-content">
-                        <form class="tab-pane fade active show" id="account-general">
-                            <div class="card-body media align-items-center">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
-                                    class="user-image d-block ui-w-80" />
-                                <div class="media-body ml-4">
-                                    <label class="btn btn-outline-primary">
-                                        Upload new photo
-                                        <input type="file" class="account-settings-fileinput" />
-                                    </label>
-                                    &nbsp;
-                                    <div class="text-light small mt-1">
-                                        Allowed JPG, GIF or PNG. Max size of 800K
-                                    </div>
-                                </div>
-                            </div>
-                            <hr class="border-light m-0" />
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label class="form-label">Name</label>
-                                    <input name="user-name" type="text" class="user-name form-control mb-1"
-                                        value="nmaxwell" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Phone</label>
-                                    <input name="user-phone" type="text" class="user-phone form-control" value="+998" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">E-mail</label>
-                                    <input name="user-email" type="text" class="user-email form-control mb-1"
-                                        value="nmaxwell@mail.com" />
-                                </div>
-                            </div>
+            <!-- Foydalanuvchi nomi -->
+            <div class="user-info">
+                <span class="icon"><i class="fas fa-user-circle"></i></span>
+                <h2 id="user-name">Abduqodir</h2>
+            </div>
+    
+            <!-- Foydalanuvchi email -->
+            <div class="user-info">
+                <span class="icon"><i class="fas fa-envelope"></i></span>
+                <p id="user-email">abduqodir@example.com</p>
+            </div>
+    
+            <!-- Foydalanuvchi statusi -->
+            <div class="user-info">
+                <span class="icon"><i class="fas fa-check-circle"></i></span>
+                <p id="user-status">Status: Regular</p>
+            </div>
 
-                            <div class="text-right mt-3 p-3">
-                                <button type="submit" class="btn btn-primary">
-                                    Save changes</button>&nbsp;
-                                <button type="button" class="btn btn-default">Cancel</button>
-                            </div>
-                        </form>
-                        <form class="tab-pane fade" id="account-orders">
-                            <div class="card-body pb-2">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <h1 class="mb-3">Orders</h1>
-                                    <button class="btn btn-primary">Add order</button>
-                                </div>
-                                <div class="user-orders">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td colspan="2">Larry the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </form>
-                        <form class="tab-pane fade" id="account-reviews">
-                            <div class="card-body pb-2">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <h1 class="mb-3">Reviews</h1>
-                                </div>
-                                <div class="user-reviews">
-                                    <p>Reviews content goes here</p>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+            <!-- Premium olish tugmasi -->
+            <button class="premium-btn" onclick="openPremiumModal()">
+                <span class="icon"><i class="fas fa-star"></i></span> Get Premium
+            </button>
+
+            <div class="premium-modal" id="premiumModal">
+                <div class="premium-modal-content">
+                    <span class="premium-close" onclick="closePremiumModal()">&times;</span>
+                    <div class="premium-modal-icon"><i class="fas fa-gem"></i></div>
+                    <h2>Premium Membership</h2>
+                    <p>Get access to exclusive features and benefits!</p>
+                    <button class="premium-confirm-btn" onclick="activatePremium()">
+                        <i class="fas fa-thumbs-up"></i> Yes, Upgrade
+                    </button>
+                    <button class="premium-cancel-btn" onclick="closePremiumModal()">
+                        <i class="fas fa-times"></i> No, Thanks
+                    </button>
                 </div>
+            </div>
+
+            <div class="profile-actions">
+                <button class="edit-btn" onclick="editProfile()"><i class="fas fa-edit"></i> Edit Profile</button>
+                <button class="logout-btn" onclick="showLogoutModal()"><i class="fas fa-sign-out-alt"></i> Log
+                    Out</button>
             </div>
         </div>
     </div>
 
-    <script src="./js/bootstrap.bundle.min.js"></script>
+    <!-- Edit Profile Modal -->
+    <div id="editProfileModal" class="modal">
+        <div class="modal-content edit-profile-modal-content">
+            <span class="close-btn" onclick="closeModal('editProfileModal')">&times;</span>
+            <h2><i class="fas fa-user-edit"></i> Edit Your Profile</h2>
+
+            <form id="editProfileForm" class="edit-profile-form" enctype="multipart/form-data">
+                <!-- Profil rasmi uchun yangi rasm yuklash qismi -->
+                <!-- Profil rasmi uchun yangi rasm yuklash qismi -->
+                <div class="form-group">
+                    <label><i class="fas fa-image"></i> Profile Picture</label>
+                    <div class="image-preview-container">
+                        <img id="profile-image-preview" src="" alt="Profile Preview">
+                    </div>
+                    <label class="custom-upload-btn" for="profile-image-upload"><i class="fas fa-upload"></i> Upload New
+                        Image</label>
+                    <input type="file" id="profile-image-upload" accept="image/*" onchange="previewImage(event)">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="edit-username"><i class="fas fa-user"></i> Username</label>
+                    <input type="text" id="edit-username" name="username" placeholder="Enter your username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-email"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="edit-email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <button type="button" class="save-btn" onclick="saveProfile()"><i class="fas fa-save"></i> Save
+                    Changes</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- Log Out Modal -->
+    <div id="logoutModal" class="modal2">
+        <div class="modal-content2 logout-modal-content">
+            <span class="close-btn" onclick="closeModal('logoutModal')">&times;</span>
+            <h2><i class="fas fa-sign-out-alt"></i> Log Out</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="logout-actions">
+                <button class="confirm-btn" onclick="logout()">Yes, Log Out</button>
+                <button class="cancel-btn" onclick="closeModal('logoutModal')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/js/profile.js"></script>
 </body>
 
 </html>

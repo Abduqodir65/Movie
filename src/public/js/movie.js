@@ -7,7 +7,7 @@ fetch('/movies')
             li.className = 'card';
             li.innerHTML = `
                 <div class="img">
-                    <a href="movie-detail.html?id=${movie.id}">
+                    <a href="movie-detail?id=${movie.id}">
                         <img src="http://localhost:3000/uploads/${movie.image}" alt="${movie.title}" />
                     </a>
                 </div>
